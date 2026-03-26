@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Brazilian E-Commerce Analytics - Charlie Garrod</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Charlie Garrod</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">← Back to Portfolio</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/Charlesdgarrod" target="_blank" rel="noopener" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/charliedgarrod" target="_blank" rel="noopener" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Hero Section -->
+							<article class="post featured">
+								<header class="major">
+									<h1>Brazilian E-Commerce Customer Analytics</h1>
+									<p>Uncovering the burst-activity business model through RFM segmentation and cohort analysis</p>
+								</header>
+								<a href="#" class="image main"><img src="images/ecommerce_overview.png" alt="Dashboard Overview" /></a>
+								<ul class="actions special">
+									<li><a href="https://github.com/charliedgarrod/ecommerce-customer-analytics" target="_blank" rel="noopener" class="button large">View GitHub</a></li>
+									<li><a href="https://github.com/charliedgarrod/ecommerce-customer-analytics/blob/main/powerbi/ecommerce_dashboard.pdf" target="_blank" rel="noopener" class="button large">Download Dashboard PDF</a></li>
+								</ul>
+							</article>
+
+						<!-- Project Overview -->
+							<section>
+								<header>
+									<h2>Project Overview</h2>
+								</header>
+								<p><strong>Challenge:</strong> A Brazilian e-commerce marketplace needed to understand customer behavior patterns to optimize their marketing strategy. With 93,358 customers and R$15.4M in revenue over two years, the business wanted to identify high-value segments and improve retention.</p>
+								
+								<p><strong>My Approach:</strong> I conducted comprehensive RFM (Recency, Frequency, Monetary) analysis using PostgreSQL and built an interactive Power BI dashboard to visualize customer segments, cohort retention patterns, and revenue distribution.</p>
+								
+								<p><strong>Critical Discovery:</strong> Customers have an average lifespan of just <strong>2.65 days</strong> - they make burst purchases and disappear. This fundamentally changed the recommended strategy from building long-term loyalty programs to optimizing for short-window conversion.</p>
+							</section>
+
+						<!-- Methodology -->
+							<section>
+								<header>
+									<h2>Methodology</h2>
+								</header>
+								<h3>1. Data Exploration & Cleaning (PostgreSQL)</h3>
+								<ul>
+									<li>Loaded 9 CSV files (99,441 orders) into PostgreSQL database</li>
+									<li>Performed data quality assessment across 8 related tables</li>
+									<li>Identified and documented missing values, duplicates, and data anomalies</li>
+									<li>Created master customer table with cleaned, aggregated metrics</li>
+								</ul>
+
+								<h3>2. RFM Analysis & Segmentation</h3>
+								<ul>
+									<li>Calculated Recency (days since last purchase), Frequency (total orders), Monetary (total revenue) for each customer</li>
+									<li>Applied NTILE(5) scoring to bucket customers into quintiles (1-5 scale)</li>
+									<li>Created 10 customer segments: Champions, Loyal Customers, At Risk, Potential Loyalists, etc.</li>
+									<li>Profiled each segment by size, revenue contribution, and behavioral metrics</li>
+								</ul>
+
+								<h3>3. Cohort Retention Analysis</h3>
+								<ul>
+									<li>Tracked 24 monthly cohorts (Sept 2016 - Aug 2018) for retention patterns</li>
+									<li>Calculated repeat buyer rates and customer activity over time</li>
+									<li>Discovered declining retention: 14% (2016) → 9% (2018)</li>
+									<li>Proved zero customers remain active after 90 days</li>
+								</ul>
+
+								<h3>4. Interactive Dashboard (Power BI)</h3>
+								<ul>
+									<li>Built 3-page dashboard connecting directly to PostgreSQL database</li>
+									<li>Created executive KPIs, segment profiles, and cohort heatmaps</li>
+									<li>Applied conditional formatting to highlight key insights visually</li>
+								</ul>
+							</section>
+
+						<!-- Dashboard Deep Dive -->
+							<section>
+								<header>
+									<h2>Dashboard Breakdown</h2>
+								</header>
+
+								<h3>Page 1: Executive Overview</h3>
+								<span class="image fit"><img src="images/page1_overview.png" alt="Executive Dashboard" /></span>
+								<p><strong>Key Metrics at a Glance:</strong></p>
+								<ul>
+									<li>93,358 total customers analyzed</li>
+									<li>R$15.42M total revenue generated</li>
+									<li>12% repeat customer rate (88% are one-time buyers)</li>
+									<li><strong>2.65 days average customer lifespan</strong> - the critical insight</li>
+								</ul>
+								<p>The side-by-side comparison of customer distribution vs. revenue distribution reveals that Loyal Customers (27% of base) drive 35% of revenue, while At Risk customers (22% of base) contribute 33% despite not purchasing recently.</p>
+
+								<h3>Page 2: Segment Analysis</h3>
+								<span class="image fit"><img src="images/page2_segments.png" alt="Segment Analysis" /></span>
+								<p><strong>Detailed Segment Profiles:</strong></p>
+								<ul>
+									<li><strong>Champions (7.3%):</strong> R$323 average value, 11.64-day lifespan, most recent purchasers</li>
+									<li><strong>Loyal Customers (26.7%):</strong> 4.78-day lifespan, consistent repeat buyers, revenue engine</li>
+									<li><strong>At Risk (22.1%):</strong> 393 days since last purchase, historically valuable, major win-back opportunity</li>
+									<li><strong>RFM Score Matrices:</strong> Revenue heavily concentrated in high Monetary scores (M=5 drives 53% of revenue)</li>
+								</ul>
+
+								<h3>Page 3: Cohort Retention</h3>
+								<span class="image fit"><img src="images/page3_cohorts.png" alt="Cohort Analysis" /></span>
+								<p><strong>The Retention Cliff:</strong></p>
+								<ul>
+									<li>Business scaled from 0 to 7,000 customers/month (Nov 2017 peak)</li>
+									<li>Repeat buyer rate declined from 14% → 9% (newer cohorts perform worse)</li>
+									<li><strong>Dramatic visualization:</strong> Zero customers active after 90 days - flat line at 0% until June 2018 cohorts (within window)</li>
+								</ul>
+								<p>This chart proves the burst-activity model: customers purchase intensely for days, then vanish permanently.</p>
+							</section>
+
+						<!-- Key Insights -->
+							<section>
+								<header>
+									<h2>Key Business Insights</h2>
+								</header>
+								
+								<h3>1. Burst-Activity Business Model</h3>
+								<p>No segment has meaningful long-term customer relationships. Even Champions average just 11.64 days of activity. This isn't a retention problem - it's the fundamental business model.</p>
+
+								<h3>2. The Second Purchase Cliff</h3>
+								<p>91.86% of repeat customers stop after exactly 2 orders. Only 8.14% progress to 3+ purchases. The critical conversion window is between orders 1 and 2.</p>
+
+								<h3>3. Low Basket Sizes = Cross-Sell Opportunity</h3>
+								<p>Average 1.05-1.35 items per order across all categories. Customers make multiple single-item orders rather than bundling purchases.</p>
+
+								<h3>4. May, Not November, Drives Revenue</h3>
+								<p>Seasonal analysis revealed May as the consistent peak month (likely Mother's Day in Brazil). November 2017 spike was event-driven (Black Friday), not structural.</p>
+
+								<h3>5. Declining Retention Over Time</h3>
+								<p>Newer customer cohorts have worse retention than older ones (14% → 9% repeat rate). The business is scaling but losing conversion effectiveness.</p>
+							</section>
+
+						<!-- Recommendations -->
+							<section>
+								<header>
+									<h2>Strategic Recommendations</h2>
+								</header>
+								
+								<h3>✅ Implement Immediately (High ROI)</h3>
+								<ol>
+									<li><strong>Aggressive retargeting within 5-10 days of first purchase</strong>
+										<ul>
+											<li>Window of opportunity closes within days based on avg 2.65-day lifespan</li>
+											<li>91.86% won't return after order 2 - must convert during active window</li>
+										</ul>
+									</li>
+									<li><strong>Time-limited offers creating urgency</strong>
+										<ul>
+											<li>Matches natural burst behavior (customers active 2-12 days)</li>
+											<li>Push for multiple orders during engagement window</li>
+										</ul>
+									</li>
+									<li><strong>Heavy cross-selling in first week</strong>
+										<ul>
+											<li>Current basket size: 1.05-1.35 items per order</li>
+											<li>Bundle products, aggressive recommendations, multi-buy discounts</li>
+										</ul>
+									</li>
+									<li><strong>Optimize May campaigns (not November)</strong>
+										<ul>
+											<li>May consistently strongest month across all cohorts</li>
+											<li>Focus annual marketing calendar accordingly</li>
+										</ul>
+									</li>
+								</ol>
+
+								<h3>❌ Deprioritize (Low ROI)</h3>
+								<ul>
+									<li>Long-term loyalty programs (customer lifespans too short to justify investment)</li>
+									<li>Post-90-day win-back campaigns (zero historical success rate)</li>
+									<li>Monthly subscription models (contradicts burst-purchase behavior)</li>
+								</ul>
+
+								<h3>⚠️ Exception: VIP Treatment for Champions</h3>
+								<p>Top 2.6% of customers (Champions segment) with R$323 average order value warrant personalized outreach and early access to products.</p>
+							</section>
+
+						<!-- Technical Skills -->
+							<section>
+								<header>
+									<h2>Technical Skills Demonstrated</h2>
+								</header>
+								<div class="row">
+									<div class="col-6 col-12-small">
+										<h3>Data Analysis</h3>
+										<ul>
+											<li>SQL (PostgreSQL)</li>
+											<li>RFM Segmentation</li>
+											<li>Cohort Analysis</li>
+											<li>Customer Lifetime Value</li>
+											<li>Statistical Analysis</li>
+										</ul>
+									</div>
+									<div class="col-6 col-12-small">
+										<h3>Technical Execution</h3>
+										<ul>
+											<li>Database Design & ETL</li>
+											<li>Window Functions (NTILE, RANK)</li>
+											<li>Complex Multi-Table JOINs</li>
+											<li>Nested CTEs</li>
+											<li>View & Table Creation</li>
+										</ul>
+									</div>
+									<div class="col-6 col-12-small">
+										<h3>Visualization</h3>
+										<ul>
+											<li>Power BI Desktop</li>
+											<li>Interactive Dashboards</li>
+											<li>Conditional Formatting</li>
+											<li>DAX Measures</li>
+											<li>Data Storytelling</li>
+										</ul>
+									</div>
+									<div class="col-6 col-12-small">
+										<h3>Business Impact</h3>
+										<ul>
+											<li>Strategic Recommendations</li>
+											<li>ROI-Focused Analysis</li>
+											<li>Executive Communication</li>
+											<li>Marketing Optimization</li>
+											<li>Data-Driven Decision Making</li>
+										</ul>
+									</div>
+								</div>
+							</section>
+
+						<!-- Project Links -->
+							<section>
+								<header>
+									<h2>Explore the Full Project</h2>
+								</header>
+								<ul class="actions special">
+									<li><a href="https://github.com/charliedgarrod/ecommerce-customer-analytics" target="_blank" rel="noopener" class="button large primary">View on GitHub</a></li>
+									<li><a href="https://github.com/charliedgarrod/ecommerce-customer-analytics/blob/main/powerbi/ecommerce_dashboard.pdf" target="_blank" rel="noopener" class="button large">Download Dashboard PDF</a></li>
+									<li><a href="https://github.com/charliedgarrod/ecommerce-customer-analytics/raw/main/powerbi/ecommerce_dashboard.pbix" target="_blank" rel="noopener" class="button large">Download Power BI File</a></li>
+								</ul>
+								<p style="text-align: center; margin-top: 2em;"><a href="index.html">← Back to Portfolio</a></p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section class="alt">
+								<h3>Location</h3>
+								<p>Walton on Thames, Surrey<br />
+								United Kingdom</p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:CharlieD.Garrod@gmail.com">CharlieD.Garrod@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/Charlesdgarrod" target="_blank" rel="noopener" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/charliedgarrod" target="_blank" rel="noopener" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Charlie Garrod</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
